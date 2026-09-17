@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>L'Expérience sur Xbox - Assassin's Creed</title>
-    <link rel="icon" type="image/png" href="logo-title.png">
     <style>
         :root {
             --xbox-green: #107C10;
@@ -16,23 +15,18 @@
             --text-muted: #a0a0a0;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
+        .ac-xbox-wrapper {
             background-color: var(--xbox-dark);
             color: var(--text-main);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            overflow-x: hidden;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--xbox-border);
+            margin: 1rem 0;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.6);
         }
 
-        header {
+        .ac-xbox-wrapper header {
             background: rgba(14, 14, 14, 0.95);
             border-bottom: 2px solid var(--xbox-green);
             padding: 1.5rem 2rem;
@@ -41,21 +35,22 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
             box-shadow: 0 4px 20px rgba(16, 124, 16, 0.2);
         }
 
-        .custom-logo {
-            max-width: 250px;
-            width: 100%;
-            height: auto;
+        .ac-xbox-wrapper .logo-box {
+            background: #222;
+            border: 2px dashed var(--xbox-green);
+            padding: 8px 20px;
+            border-radius: 8px;
             margin-bottom: 0.8rem;
-            filter: drop-shadow(0 2px 8px rgba(16, 124, 16, 0.3));
+            color: #fff;
+            font-weight: bold;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
         }
 
-        .subtitle-tag {
+        .ac-xbox-wrapper .subtitle-tag {
             color: var(--xbox-green);
             font-size: 0.95rem;
             text-transform: uppercase;
@@ -67,25 +62,24 @@
             border: 1px solid rgba(16, 124, 16, 0.3);
         }
 
-        main {
-            flex: 1;
-            max-width: 1300px;
+        .ac-xbox-wrapper main {
+            max-width: 1200px;
             width: 92%;
-            margin: 2.5rem auto;
+            margin: 2rem auto;
             display: flex;
             flex-direction: column;
             gap: 2rem;
+            padding-bottom: 2rem;
         }
 
-        .nav-tabs {
+        .ac-xbox-wrapper .nav-tabs {
             display: flex;
             justify-content: center;
             gap: 1.2rem;
             flex-wrap: wrap;
-            margin-bottom: 0.5rem;
         }
 
-        .tab-btn {
+        .ac-xbox-wrapper .tab-btn {
             background-color: var(--xbox-card);
             color: var(--text-muted);
             border: 1px solid var(--xbox-border);
@@ -97,39 +91,38 @@
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .tab-btn:hover {
+        .ac-xbox-wrapper .tab-btn:hover {
             border-color: var(--xbox-green);
             color: var(--text-main);
             transform: translateY(-2px);
         }
 
-        .tab-btn.active {
+        .ac-xbox-wrapper .tab-btn.active {
             background-color: var(--xbox-green);
             color: white;
             border-color: var(--xbox-green);
             box-shadow: 0 4px 20px rgba(16, 124, 16, 0.4);
         }
 
-        .section-content {
+        .ac-xbox-wrapper .section-content {
             display: none;
             background-color: var(--xbox-card);
             border: 1px solid var(--xbox-border);
             border-radius: 14px;
             padding: 2.5rem;
-            animation: fadeIn 0.4s ease-in-out;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+            animation: acFadeIn 0.4s ease-in-out;
         }
 
-        .section-content.active {
+        .ac-xbox-wrapper .section-content.active {
             display: block;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(12px); }
+        @keyframes acFadeIn {
+            from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        h2 {
+        .ac-xbox-wrapper h2 {
             font-size: 1.8rem;
             margin-bottom: 1.2rem;
             color: white;
@@ -137,21 +130,21 @@
             padding-left: 1rem;
         }
 
-        p {
+        .ac-xbox-wrapper p {
             line-height: 1.7;
             color: var(--text-muted);
             margin-bottom: 1.2rem;
             font-size: 1.05rem;
         }
 
-        .table-responsive {
+        .ac-xbox-wrapper .table-responsive {
             overflow-x: auto;
             margin-top: 1.5rem;
             border-radius: 10px;
             border: 1px solid var(--xbox-border);
         }
 
-        table {
+        .ac-xbox-wrapper table {
             width: 100%;
             border-collapse: collapse;
             text-align: left;
@@ -159,13 +152,13 @@
             white-space: nowrap;
         }
 
-        th, td {
+        .ac-xbox-wrapper th, .ac-xbox-wrapper td {
             padding: 1.1rem 1.4rem;
             border-bottom: 1px solid var(--xbox-border);
             font-size: 0.95rem;
         }
 
-        th {
+        .ac-xbox-wrapper th {
             background-color: #1a1a1a;
             color: white;
             text-transform: uppercase;
@@ -173,15 +166,15 @@
             letter-spacing: 1px;
         }
 
-        tr:last-child td {
+        .ac-xbox-wrapper tr:last-child td {
             border-bottom: none;
         }
 
-        tr:hover {
+        .ac-xbox-wrapper tr:hover {
             background-color: rgba(16, 124, 16, 0.06);
         }
 
-        .badge-yes {
+        .ac-xbox-wrapper .badge-yes {
             color: #4ade80;
             background: rgba(74, 222, 128, 0.1);
             padding: 0.3rem 0.8rem;
@@ -190,7 +183,7 @@
             display: inline-block;
         }
 
-        .badge-no {
+        .ac-xbox-wrapper .badge-no {
             color: #f87171;
             background: rgba(248, 113, 113, 0.1);
             padding: 0.3rem 0.8rem;
@@ -199,14 +192,14 @@
             display: inline-block;
         }
 
-        .grid-cards {
+        .ac-xbox-wrapper .grid-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
             margin-top: 1.5rem;
         }
 
-        .info-card {
+        .ac-xbox-wrapper .info-card {
             background: #111;
             border: 1px solid var(--xbox-border);
             padding: 1.5rem;
@@ -214,11 +207,11 @@
             transition: border-color 0.3s ease;
         }
 
-        .info-card:hover {
+        .ac-xbox-wrapper .info-card:hover {
             border-color: var(--xbox-green);
         }
 
-        .info-card h3 {
+        .ac-xbox-wrapper .info-card h3 {
             color: white;
             margin-bottom: 0.8rem;
             font-size: 1.2rem;
@@ -227,7 +220,7 @@
             gap: 0.5rem;
         }
 
-        .info-card h3::before {
+        .ac-xbox-wrapper .info-card h3::before {
             content: '';
             display: inline-block;
             width: 8px;
@@ -236,37 +229,36 @@
             border-radius: 50%;
         }
 
-        footer {
+        .ac-xbox-wrapper footer {
             text-align: center;
             padding: 1.5rem;
             border-top: 1px solid var(--xbox-border);
             color: var(--text-muted);
             font-size: 0.9rem;
             background: #0a0a0a;
-            margin-top: auto;
         }
 
         @media(max-width: 768px) {
-            header { padding: 1rem; }
-            .section-content { padding: 1.5rem; }
+            .ac-xbox-wrapper header { padding: 1rem; }
+            .ac-xbox-wrapper .section-content { padding: 1.5rem; }
         }
     </style>
 </head>
 <body>
 
+<div class="ac-xbox-wrapper">
     <header>
-        <!-- Ton image logo-title.png affichée dans l'en-tête du site -->
-        <img src="logo-title.png" alt="Logo Assassin's Creed Xbox" class="custom-logo">
-        <div class="subtitle-tag">Présentation & Matrice de Compatibilité</div>
+        <div class="logo-box">LOGO : Assassin's Creed Genealogy</div>
+        <div class="subtitle-tag">Sur Xbox</div>
     </header>
 
     <main>
         <div class="nav-tabs">
-            <button class="tab-btn active" onclick="switchTab('matrix')">Tableau des jeux</button>
-            <button class="tab-btn" onclick="switchTab('ecosystem')">Comprendre l'écosystème Xbox</button>
+            <button class="tab-btn active" onclick="switchAcTab('matrix', event)">Tableau des jeux</button>
+            <button class="tab-btn" onclick="switchAcTab('ecosystem', event)">Comprendre l'écosystème Xbox</button>
         </div>
 
-        <!-- Section 1 : Matrice de Compatibilité -->
+        <!-- Section 1 : Matrice -->
         <div id="matrix" class="section-content active">
             <h2>Tableau des jeux</h2>
             <p>Retrouvez ci-dessous le détail des fonctionnalités, de la prise en charge du Cloud Gaming, de Xbox Play Anywhere et des optimisations spécifiques pour chaque titre majeur de la franchise sur les consoles Xbox Series X|S.</p>
@@ -309,7 +301,7 @@
             </div>
         </div>
 
-        <!-- Section 2 : Écosystème Xbox -->
+        <!-- Section 2 : Écosystème -->
         <div id="ecosystem" class="section-content">
             <h2>Comprendre l'écosystème Xbox</h2>
             <p>Profitez pleinement de votre bibliothèque grâce aux technologies innovantes intégrées au hardware et aux services Microsoft.</p>
@@ -334,15 +326,18 @@
     <footer>
         <p>L'Expérience Assassin's Creed sur Xbox | par Assassin's Creed : Genealogy</p>
     </footer>
+</div>
 
-    <script>
-        function switchTab(tabId) {
-            document.querySelectorAll('.section-content').forEach(el => el.classList.remove('active'));
-            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
-            
-            document.getElementById(tabId).classList.add('active');
-            event.currentTarget.classList.add('active');
-        }
-    </script>
+<script>
+    function switchAcTab(tabId, evt) {
+        const wrapper = evt.currentTarget.closest('.ac-xbox-wrapper');
+        wrapper.querySelectorAll('.section-content').forEach(el => el.classList.remove('active'));
+        wrapper.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+        
+        wrapper.querySelector('#' + tabId).classList.add('active');
+        evt.currentTarget.classList.add('active');
+    }
+</script>
+
 </body>
 </html>
