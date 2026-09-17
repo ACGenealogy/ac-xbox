@@ -15,7 +15,7 @@
             --text-muted: #a0a0a0;
         }
 
-        /* Supprime les marges par défaut de la page pour le plein écran */
+        /* Supprime les marges par défaut de la page pour le plein écran intégral */
         body {
             margin: 0;
             padding: 0;
@@ -234,6 +234,11 @@
             border-radius: 50%;
         }
 
+        /* Texte justifié pour les cartes de l'écosystème */
+        .ac-xbox-wrapper .info-card p {
+            text-align: justify;
+        }
+
         .ac-xbox-wrapper footer {
             text-align: center;
             padding: 1.5rem;
@@ -273,32 +278,102 @@
                     <thead>
                         <tr>
                             <th>Jeu</th>
+                            <th>Disque vers numérique</th>
                             <th>Cloud Gaming</th>
                             <th>Xbox Play Anywhere</th>
-                            <th>Transfert disque vers numérique</th>
                             <th>Optimisation</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><strong>Assassin's Creed Valhalla</strong></td>
+                            <td><strong>Assassin's Creed : The Ezio Collection</strong></td>
                             <td><span class="badge-yes">Oui</span></td>
                             <td><span class="badge-yes">Oui</span></td>
-                            <td><span class="badge-yes">Oui (Smart Delivery)</span></td>
+                            <td><span class="badge-no">Non</span></td>
+                            <td>FPS Boost (60 FPS)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Assassin's Creed III - Remastered</strong></td>
+                            <td><span class="badge-yes">Oui</span></td>
+                            <td><span class="badge-yes">Oui</span></td>
+                            <td><span class="badge-no">Non</span></td>
+                            <td>Optimisé Xbox One X</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Assassin's Creed IV : Blackflag</strong></td>
+                            <td><span class="badge-no">Non</span></td>
+                            <td><span class="badge-yes">Oui</span></td>
+                            <td><span class="badge-no">Non</span></td>
+                            <td>Rétrocompatible</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Assassin's Creed : Rogue - Remastered</strong></td>
+                            <td><span class="badge-yes">Oui</span></td>
+                            <td><span class="badge-yes">Oui</span></td>
+                            <td><span class="badge-no">Non</span></td>
+                            <td>Optimisé Xbox One X</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Assassin's Creed : Unity</strong></td>
+                            <td><span class="badge-yes">Oui</span></td>
+                            <td><span class="badge-yes">Oui</span></td>
+                            <td><span class="badge-no">Non</span></td>
+                            <td>FPS Boost (60 FPS)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Assassin's Creed : Chronicles</strong></td>
+                            <td><span class="badge-yes">Oui</span></td>
+                            <td><span class="badge-yes">Oui</span></td>
+                            <td><span class="badge-no">Non</span></td>
+                            <td>Rétrocompatible</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Assassin's Creed : Syndicate</strong></td>
+                            <td><span class="badge-yes">Oui</span></td>
+                            <td><span class="badge-yes">Oui</span></td>
+                            <td><span class="badge-no">Non</span></td>
+                            <td>Mise à jour 60 FPS</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Assassin's Creed : Origins</strong></td>
+                            <td><span class="badge-yes">Oui</span></td>
+                            <td><span class="badge-yes">Oui</span></td>
+                            <td><span class="badge-no">Non</span></td>
+                            <td>Mise à jour 60 FPS</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Assassin's Creed : Odyssey</strong></td>
+                            <td><span class="badge-yes">Oui</span></td>
+                            <td><span class="badge-yes">Oui</span></td>
+                            <td><span class="badge-no">Non</span></td>
+                            <td>Mise à jour 60 FPS</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Assassin's Creed : Valhalla</strong></td>
+                            <td><span class="badge-yes">Oui</span></td>
+                            <td><span class="badge-yes">Oui</span></td>
+                            <td><span class="badge-yes">Oui</span></td>
                             <td>Optimisé Series X|S (60 FPS)</td>
                         </tr>
                         <tr>
-                            <td><strong>Assassin's Creed Mirage</strong></td>
+                            <td><strong>Assassin's Creed : Mirage</strong></td>
                             <td><span class="badge-yes">Oui</span></td>
                             <td><span class="badge-yes">Oui</span></td>
-                            <td><span class="badge-yes">Oui (Smart Delivery)</span></td>
+                            <td><span class="badge-yes">Oui</span></td>
                             <td>Optimisé Series X|S (60 FPS)</td>
                         </tr>
                         <tr>
-                            <td><strong>Assassin's Creed Shadows</strong></td>
+                            <td><strong>Assassin's Creed : Shadows</strong></td>
+                            <td><span class="badge-yes">Oui</span></td>
+                            <td><span class="badge-yes">Oui</span></td>
                             <td><span class="badge-no">Non</span></td>
+                            <td>Optimisé Series X|S</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Assassin's Creed : Blackflag - Resynced</strong></td>
+                            <td><span class="badge-yes">Oui</span></td>
+                            <td><span class="badge-yes">Oui</span></td>
                             <td><span class="badge-no">Non</span></td>
-                            <td><span class="badge-no">N/A (Édition dédiée)</span></td>
                             <td>Optimisé Series X|S</td>
                         </tr>
                     </tbody>
@@ -314,7 +389,7 @@
             <div class="grid-cards">
                 <div class="info-card">
                     <h3>Xbox Play Anywhere</h3>
-                    <p>Achetez un jeu éligible une seule fois et jouez-y à la fois sur votre console Xbox et sur votre PC Windows, avec sauvegarde et progression partagées.</p>
+                    <p>Depuis le 27 juillet 2026, si un joueur achète ou possède une version numérique d'un jeu éligible sur console Xbox, il obtient automatiquement sa version PC sans frais supplémentaires via Ubisoft Connect.</p>
                 </div>
                 <div class="info-card">
                     <h3>Smart Delivery</h3>
