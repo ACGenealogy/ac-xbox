@@ -3,534 +3,353 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <img src="logotitre.png" alt="Logo Assassin's Creed Genealogy" class="custom-logo">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Lato:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title><link rel="icon" type="image/png" href="logotitre.png"></title>
     <style>
-        * { box-sizing: border-box; }
         :root {
-            --xbox-green: #107c10;
-            --xbox-green-dark: #0b530b;
-            --xbox-dark: #0f172a;
-            --card-bg: #1e293b;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
+            --xbox-green: #107C10;
+            --xbox-green-hover: #0e6e0e;
+            --xbox-dark: #0e0e0e;
+            --xbox-card: #161616;
+            --xbox-border: #262626;
+            --text-main: #f0f0f0;
+            --text-muted: #a0a0a0;
         }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
         body {
             background-color: var(--xbox-dark);
-            display: grid;
-            gap: 20px;
-            grid-template-columns: 1fr;
-            margin: 0;
-            min-height: 100vh;
-            padding: 20px 10px;
-            place-items: center;
-            font-family: 'Lato', sans-serif;
             color: var(--text-main);
-        }
-        
-        /* Presentation wrapper container */
-        .presentation-wrapper {
-            position: relative;
-            width: 100%;
-            max-width: 1280px;
-            aspect-ratio: 16 / 9;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-            border-radius: 16px;
-            overflow: hidden;
-            background: linear-gradient(135deg, #0f172a 0%, #111827 100%);
-            border: 1px solid rgba(16, 124, 16, 0.3);
-        }
-
-        /* Slide container structure */
-        .slide-container {
-            align-items: center;
-            background: radial-gradient(circle at center, #134e13 0%, #0a310a 100%);
-            display: none;
+            min-height: 100vh;
+            display: flex;
             flex-direction: column;
-            height: 100%;
-            justify-content: space-between;
-            padding: 40px 60px;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            opacity: 0;
-            transition: opacity 0.4s ease-in-out;
-        }
-        .slide-container.active {
-            display: flex;
-            opacity: 1;
-            z-index: 2;
+            overflow-x: hidden;
         }
 
-        /* Top Header inside slides */
-        .slide-header {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 2px solid rgba(255,255,255,0.1);
-            padding-bottom: 15px;
-        }
-        .slide-header h2 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 26px;
-            margin: 0;
-            color: #ffffff;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .slide-header h2 i { color: #4ade80; }
-        .badge-system {
-            background: rgba(0, 0, 0, 0.4);
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 600;
-            color: #4ade80;
-            border: 1px solid rgba(74, 222, 128, 0.3);
-        }
-
-        .intro-layout {
+        header {
+            background: rgba(14, 14, 14, 0.95);
+            border-bottom: 2px solid var(--xbox-green);
+            padding: 1.5rem 2rem;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
-            width: 100%;
-            height: 100%;
-            gap: 30px;
-        }
-        .logo-container {
-            max-width: 650px;
-            width: 100%;
-            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
-            animation: floatLogo 4s ease-in-out infinite;
-        }
-        .logo-container img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        @keyframes floatLogo {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
-        }
-        .intro-tagline {
-            font-size: 20px;
-            color: #cbd5e1;
-            max-width: 700px;
-            line-height: 1.5;
-            margin: 0;
-        }
-        .start-btn {
-            background: linear-gradient(135deg, #107c10 0%, #0b530b 100%);
-            color: white;
-            border: none;
-            padding: 14px 35px;
-            border-radius: 30px;
-            font-size: 18px;
-            font-weight: 700;
-            font-family: 'Poppins', sans-serif;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(16, 124, 16, 0.4);
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .start-btn:hover {
-            transform: scale(1.05);
-            background: linear-gradient(135deg, #139813, #0f700f);
-            box-shadow: 0 6px 20px rgba(16, 124, 16, 0.6);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(16, 124, 16, 0.2);
         }
 
-        .table-slide-bg {
-            background: linear-gradient(135deg, #0f172a 0%, #111827 100%) !important;
-        }
-        .content-area {
+        .custom-logo {
+            max-width: 400px;
             width: 100%;
-            flex-grow: 1;
+            height: auto;
+            margin-bottom: 0.5rem;
+            filter: drop-shadow(0 2px 8px rgba(16, 124, 16, 0.3));
+        }
+
+        .subtitle-tag {
+            color: var(--xbox-green);
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            background: rgba(16, 124, 16, 0.1);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            border: 1px solid rgba(16, 124, 16, 0.3);
+        }
+
+        main {
+            flex: 1;
+            max-width: 1300px;
+            width: 92%;
+            margin: 2.5rem auto;
             display: flex;
             flex-direction: column;
+            gap: 2rem;
+        }
+
+        .nav-tabs {
+            display: flex;
             justify-content: center;
-            margin: 15px 0;
-            overflow: hidden;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+            margin-bottom: 0.5rem;
         }
-        .table-wrapper {
-            width: 100%;
-            max-height: 480px;
-            overflow-y: auto;
-            background: var(--card-bg);
-            border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.08);
-            box-shadow: inset 0 2px 5px rgba(0,0,0,0.3);
+
+        .tab-btn {
+            background-color: var(--xbox-card);
+            color: var(--text-muted);
+            border: 1px solid var(--xbox-border);
+            padding: 0.9rem 1.8rem;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .table-wrapper::-webkit-scrollbar {
-            width: 8px;
+
+        .tab-btn:hover {
+            border-color: var(--xbox-green);
+            color: var(--text-main);
+            transform: translateY(-2px);
         }
-        .table-wrapper::-webkit-scrollbar-track {
-            background: #0f172a;
+
+        .tab-btn.active {
+            background-color: var(--xbox-green);
+            color: white;
+            border-color: var(--xbox-green);
+            box-shadow: 0 4px 20px rgba(16, 124, 16, 0.4);
         }
-        .table-wrapper::-webkit-scrollbar-thumb {
-            background: #334155;
-            border-radius: 4px;
+
+        .section-content {
+            display: none;
+            background-color: var(--xbox-card);
+            border: 1px solid var(--xbox-border);
+            border-radius: 14px;
+            padding: 2.5rem;
+            animation: fadeIn 0.4s ease-in-out;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.5);
         }
+
+        .section-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.2rem;
+            color: white;
+            border-left: 4px solid var(--xbox-green);
+            padding-left: 1rem;
+        }
+
+        p {
+            line-height: 1.7;
+            color: var(--text-muted);
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+            margin-top: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid var(--xbox-border);
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
             text-align: left;
-            font-size: 14px;
+            background-color: #111;
+            white-space: nowrap;
         }
+
         th, td {
-            padding: 12px 16px;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding: 1.1rem 1.4rem;
+            border-bottom: 1px solid var(--xbox-border);
+            font-size: 0.95rem;
         }
+
         th {
-            background-color: #111827;
-            color: #4ade80;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
-            position: sticky;
-            top: 0;
-            z-index: 5;
+            background-color: #1a1a1a;
+            color: white;
             text-transform: uppercase;
-            font-size: 12px;
-            letter-spacing: 0.5px;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
         }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
         tr:hover {
-            background-color: rgba(255, 255, 255, 0.03);
+            background-color: rgba(16, 124, 16, 0.06);
         }
-        td:first-child {
-            font-weight: 700;
-            color: #ffffff;
-        }
+
         .badge-yes {
             color: #4ade80;
-            font-weight: 700;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
+            background: rgba(74, 222, 128, 0.1);
+            padding: 0.3rem 0.8rem;
+            border-radius: 6px;
+            font-weight: 600;
+            display: inline-block;
         }
+
         .badge-no {
             color: #f87171;
+            background: rgba(248, 113, 113, 0.1);
+            padding: 0.3rem 0.8rem;
+            border-radius: 6px;
             font-weight: 600;
-        }
-        .badge-partial {
-            color: #facc15;
-            font-weight: 600;
+            display: inline-block;
         }
 
-        .features-grid {
+        .grid-cards {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            width: 100%;
-            margin: 20px 0;
-        }
-        .feature-box {
-            background: var(--card-bg);
-            border-radius: 12px;
-            padding: 25px;
-            border-top: 4px solid var(--xbox-green);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-        .feature-box i {
-            font-size: 32px;
-            color: #4ade80;
-        }
-        .feature-box h3 {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            font-size: 18px;
-            color: #ffffff;
-        }
-        .feature-box p {
-            margin: 0;
-            font-size: 14px;
-            color: var(--text-muted);
-            line-height: 1.5;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
         }
 
-        /* Navigation controls and footer */
-        .slide-footer-nav {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 15px;
+        .info-card {
+            background: #111;
+            border: 1px solid var(--xbox-border);
+            padding: 1.5rem;
+            border-radius: 10px;
+            transition: border-color 0.3s ease;
         }
-        .slide-counter {
-            font-family: 'Poppins', sans-serif;
-            font-size: 14px;
-            color: var(--text-muted);
-        }
-        .nav-buttons {
-            display: flex;
-            gap: 12px;
-        }
-        .nav-btn {
-            background: #1e293b;
-            color: white;
-            border: 1px solid rgba(255,255,255,0.1);
-            padding: 8px 18px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
-            font-size: 13px;
-            transition: all 0.2s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .nav-btn:hover {
-            background: var(--xbox-green);
+
+        .info-card:hover {
             border-color: var(--xbox-green);
         }
 
-        /* Responsive layout adaptation */
-        @media (max-width: 1024px) {
-            .presentation-wrapper { height: 600px; }
-            .features-grid { grid-template-columns: 1fr; gap: 12px; }
+        .info-card h3 {
+            color: white;
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .info-card h3::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: var(--xbox-green);
+            border-radius: 50%;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            border-top: 1px solid var(--xbox-border);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            background: #0a0a0a;
+            margin-top: auto;
+        }
+
+        @media(max-width: 768px) {
+            header { padding: 1rem; }
+            .section-content { padding: 1.5rem; }
         }
     </style>
-<style>
-  .lms-source-label {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    background-color: #e0e0e0;
-    color: #333333;
-    border-radius: 10px;
-    padding: 4px 4px;
-    font-family: sans-serif;
-    font-size: 10px;
-    pointer-events: none;
-    font-weight: 500;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.1);
-  }
-</style></head>
+</head>
 <body>
 
-    <div class="presentation-wrapper">
-        
-        <!-- Slide 1: Welcome / Intro -->
-        <div class="slide-container active" id="slide1">
-            <div class="intro-layout">
-                <!-- Exact uploaded logo integration -->
-                <div class="logo-container">
-                    <img src="XP AC SUR XBOX.png" alt="L'Expérience sur Xbox Assassin's Creed" onerror="this.onerror=null; this.src='https://placehold.co/650x150/107c10/ffffff?text=L%27EXPERIENCE+sur+XBOX+ASSASSIN%27S+CREED';">
-                </div>
-                <p class="intro-tagline">
-                    Guide interactif complet et matrice de compatibilité des jeux Assassin's Creed sur l'écosystème Xbox Series X|S & Cloud Gaming.
-                </p>
-                <button class="start-btn" onclick="goToSlide(2)">
-                    Explorer la matrice <i class="fa-solid fa-arrow-right"></i>
-                </button>
-            </div>
-            <div class="slide-footer-nav" style="border: none; padding: 0;">
-                <div class="slide-counter">Diapositive 1 / 3</div>
-                <div class="nav-buttons">
-                    <button class="nav-btn" onclick="goToSlide(2)">Suivant <i class="fa-solid fa-arrow-right"></i></button>
-                </div>
-            </div>
+    <header>
+        <svg class="custom-logo" viewBox="0 0 1000 280" xmlns="http://www.w3.org/2000/svg">
+            <style>
+                .t1 { font-family: 'Segoe UI', Arial, sans-serif; font-weight: 300; fill: #FFFFFF; font-size: 62px; letter-spacing: 5px; }
+                .t2 { font-family: 'Segoe UI', Arial, sans-serif; font-weight: 600; fill: #107C10; font-size: 38px; letter-spacing: 3px; }
+                .t3 { font-family: 'Segoe UI', Arial, sans-serif; font-weight: 700; fill: #FFFFFF; font-size: 72px; letter-spacing: 2px; }
+            </style>
+            <text x="50%" y="60" text-anchor="middle" class="t1">L'EXPERIENCE</text>
+            <text x="50%" y="110" text-anchor="middle" class="t2">SUR XBOX</text>
+            <text x="50%" y="200" text-anchor="middle" class="t3">ASSASSIN'S CREED</text>
+        </svg>
+        <div class="subtitle-tag">Présentation & Matrice de Compatibilité</div>
+    </header>
+
+    <main>
+        <div class="nav-tabs">
+            <button class="tab-btn active" onclick="switchTab('matrix')">Tableau des jeux</button>
+            <button class="tab-btn" onclick="switchTab('ecosystem')">Comprendre l'écosystème Xbox</button>
         </div>
 
-        <!-- Slide 2: Compatibility & Features Matrix -->
-        <div class="slide-container table-slide-bg" id="slide2">
-            <div class="slide-header">
-                <h2><i class="fa-solid fa-table-cells"></i> Matrice des Fonctionnalités &amp; Compatibilité Xbox</h2>
-                <div class="badge-system"><i class="fa-brands fa-xbox"></i> Series X|S Ready</div>
-            </div>
+        <!-- Section 1 : Matrice de Compatibilité -->
+        <div id="matrix" class="section-content active">
+            <h2>Tableau des jeux</h2>
+            <p>Retrouvez ci-dessous le détail des fonctionnalités, de la prise en charge du Cloud Gaming, de Xbox Play Anywhere et des optimisations spécifiques pour chaque titre majeur de la franchise sur les consoles Xbox Series X|S.</p>
             
-            <div class="content-area">
-                <div class="table-wrapper">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Jeu Assassin's Creed</th>
-                                <th>Support</th>
-                                <th>Cloud Gaming</th>
-                                <th>Transfert Disque</th>
-                                <th>FPS Boost</th>
-                                <th>Optimisé X|S</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Assassin's Creed: The Ezio Collection</td>
-                                <td>Physique / Numérique</td>
-                                <td><span class="badge-yes"><i class="fa-solid fa-check"></i> Oui</span></td>
-                                <td><span class="badge-yes"><i class="fa-solid fa-check"></i> Oui</span></td>
-                                <td><span class="badge-yes">FPS Boost (60 FPS)</span></td>
-                                <td><span class="badge-partial">Rétrocompatible</span></td>
-                            </tr>
-                            <tr>
-                                <td>Assassin's Creed III – Remastered</td>
-                                <td>Physique / Numérique</td>
-                                <td><span class="badge-yes"><i class="fa-solid fa-check"></i> Oui</span></td>
-                                <td><span class="badge-yes"><i class="fa-solid fa-check"></i> Oui</span></td>
-                                <td><span class="badge-yes">FPS Boost (60 FPS)</span></td>
-                                <td><span class="badge-partial">Rétrocompatible</span></td>
-                            </tr>
-                            <tr>
-                                <td>Assassin's Creed IV: Black Flag</td>
-                                <td>Physique / Numérique</td>
-                                <td><span class="badge-yes"><i class="fa-solid fa-check"></i> Oui</span></td>
-                                <td><span class="badge-yes"><i class="fa-solid fa-check"></i> Oui</span></td>
-                                <td><span class="badge-no">Non disponible</span></td>
-                                <td><span class="badge-partial">Version Xbox One</span></td>
-                            </tr>
-                            <tr>
-                                <td>Assassin's Creed: Unity</td>
-                                <td>Physique / Numérique</td>
-                                <td><span class="badge-yes"><i class="fa-solid fa-check"></i> Oui</span></td>
-                                <td><span class="badge-yes"><i class="fa-solid fa-check"></i> Oui</span></td>
-                                <td><span class="badge-yes">FPS Boost (60 FPS)</span></td>
-                                <td><span class="badge-yes">Patch 60 FPS Actif</span></td>
-                            </tr>
-                            <tr>
-                                <td>Assassin's Creed: Rogue – Remastered</td>
-                                <td>Physique / Numérique</td>
-                                <td><span class="badge-yes"><i class="fa-solid fa-check"></i> Oui</span></td>
-                                <td><span class="badge-yes"><i class="fa-solid fa-check"></i> Oui</span></td>
-                                <td><span class="badge-yes">FPS Boost (60 FPS)</span></td>
-                                <td><span class="badge-partial">Rétrocompatible</span></td>
-                            </tr>
-                            <tr>
-                                <td>Assassin's Creed: Chronicles</td>
-                                <td>Numérique</td>
-                                <td><span class="badge-yes"><i class="fa-solid fa-check"></i> Oui</span></td>
-                                <td><span class="badge-no">N/A (Numérique)</span></td>
-                                <td><span class="badge-no">Non</span></td>
-                                <td><span class="badge-partial">Xbox One</span></td>
-                            </tr>
-                            <tr>
-                                <td>Assassin's Creed: Origins</td>
-                                <td>Physique / Numérique</td>
-                                <td><span class="badge-yes"><i class="fa-solid fa-check"></i> Oui</span></td>
-                                <td><span class="badge-yes"><i class="fa-solid fa-check"></i> Oui</span></td>
-                                <td><span class="badge-yes">FPS Boost (60 FPS)</span></td>
-                                <td><span class="badge-yes">Patch 60 FPS</span></td>
-                            </tr>
-                            <tr>
-                                <td>Assassin's Creed: Odyssey</td>
-                                <td>Physique / Numérique</td>
-                                <td><span class="badge-yes"><i class="fa-solid fa-check"></i> Oui</span></td>
-                                <td><span class="badge-yes"><i class="fa-solid fa-check"></i> Oui</span></td>
-                                <td><span class="badge-yes">FPS Boost (60 FPS)</span></td>
-                                <td><span class="badge-yes">Patch 60 FPS</span></td>
-                            </tr>
-                            <tr>
-                                <td>Assassin's Creed: Valhalla</td>
-                                <td>Physique / Numérique</td>
-                                <td><span class="badge-yes"><i class="fa-solid fa-check"></i> Oui</span></td>
-                                <td><span class="badge-yes"><i class="fa-solid fa-check"></i> Oui</span></td>
-                                <td><span class="badge-yes">Natif X|S</span></td>
-                                <td><span class="badge-yes">Optimisé X|S (4K/60)</span></td>
-                            </tr>
-                            <tr>
-                                <td>Assassin's Creed: Mirage</td>
-                                <td>Physique / Numérique</td>
-                                <td><span class="badge-yes"><i class="fa-solid fa-check"></i> Oui</span></td>
-                                <td><span class="badge-yes"><i class="fa-solid fa-check"></i> Oui</span></td>
-                                <td><span class="badge-yes">Natif X|S</span></td>
-                                <td><span class="badge-yes">Optimisé X|S</span></td>
-                            </tr>
-                            <tr>
-                                <td>Assassin's Creed: Shadows</td>
-                                <td>Physique / Numérique</td>
-                                <td><span class="badge-yes"><i class="fa-solid fa-check"></i> Oui</span></td>
-                                <td><span class="badge-yes"><i class="fa-solid fa-check"></i> Oui</span></td>
-                                <td><span class="badge-yes">Natif X|S</span></td>
-                                <td><span class="badge-yes">Optimisé X|S</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="slide-footer-nav">
-                <div class="slide-counter">Diapositive 2 / 3</div>
-                <div class="nav-buttons">
-                    <button class="nav-btn" onclick="goToSlide(1)"><i class="fa-solid fa-arrow-left"></i> Précédent</button>
-                    <button class="nav-btn" onclick="goToSlide(3)">Suivant <i class="fa-solid fa-arrow-right"></i></button>
-                </div>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Jeu</th>
+                            <th>Cloud Gaming</th>
+                            <th>Xbox Play Anywhere</th>
+                            <th>Transfert disque vers numérique</th>
+                            <th>Optimisation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Assassin's Creed Valhalla</strong></td>
+                            <td><span class="badge-yes">Oui</span></td>
+                            <td><span class="badge-yes">Oui</span></td>
+                            <td><span class="badge-yes">Oui (Smart Delivery)</span></td>
+                            <td>Optimisé Series X|S (60 FPS)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Assassin's Creed Mirage</strong></td>
+                            <td><span class="badge-yes">Oui</span></td>
+                            <td><span class="badge-yes">Oui</span></td>
+                            <td><span class="badge-yes">Oui (Smart Delivery)</span></td>
+                            <td>Optimisé Series X|S (60 FPS)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Assassin's Creed Shadows</strong></td>
+                            <td><span class="badge-no">Non</span></td>
+                            <td><span class="badge-no">Non</span></td>
+                            <td><span class="badge-no">N/A (Édition dédiée)</span></td>
+                            <td>Optimisé Series X|S</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
 
-        <!-- Slide 3: Detailed Breakdown & Notes -->
-        <div class="slide-container" id="slide3">
-            <div class="slide-header">
-                <h2><i class="fa-solid fa-circle-info"></i> Guide des Fonctionnalités Xbox</h2>
-                <div class="badge-system">Écosystème Avancé</div>
-            </div>
-
-            <div class="content-area">
-                <div class="features-grid">
-                    <div class="feature-box">
-                        <i class="fa-solid fa-cloud"></i>
-                        <h3>Cloud Gaming (Xbox Cloud)</h3>
-                        <p>Jouez instantanément à vos titres Assassin's Creed favoris sur consoles, PC ou appareils mobiles sans temps de téléchargement ni installation requise.</p>
-                    </div>
-                    <div class="feature-box">
-                        <i class="fa-solid fa-compact-disc"></i>
-                        <h3>Transfert Disque vers Numérique</h3>
-                        <p>Le système reconnaît vos disques physiques Xbox One et vous permet d'accéder aux licences numériques correspondantes via Smart Delivery ou programmes partenaires.</p>
-                    </div>
-                    <div class="feature-box">
-                        <i class="fa-solid fa-bolt"></i>
-                        <h3>FPS Boost &amp; X|S Optimization</h3>
-                        <p>Profitez de fréquences d'affichage doublées (60 images par seconde) sur les anciens opus grâce au FPS Boost et de résolutions optimisées sur Xbox Series X|S.</p>
-                    </div>
+        <!-- Section 2 : Écosystème Xbox -->
+        <div id="ecosystem" class="section-content">
+            <h2>Comprendre l'écosystème Xbox</h2>
+            <p>Profitez pleinement de votre bibliothèque grâce aux technologies innovantes intégrées au hardware et aux services Microsoft.</p>
+            
+            <div class="grid-cards">
+                <div class="info-card">
+                    <h3>Xbox Play Anywhere</h3>
+                    <p>Achetez un jeu éligible une seule fois et jouez-y à la fois sur votre console Xbox et sur votre PC Windows, avec sauvegarde et progression partagées.</p>
                 </div>
-            </div>
-
-            <div class="slide-footer-nav">
-                <div class="slide-counter">Diapositive 3 / 3</div>
-                <div class="nav-buttons">
-                    <button class="nav-btn" onclick="goToSlide(2)"><i class="fa-solid fa-arrow-left"></i> Précédent</button>
-                    <button class="nav-btn" onclick="goToSlide(1)"><i class="fa-solid fa-rotate-right"></i> Recommencer</button>
+                <div class="info-card">
+                    <h3>Smart Delivery</h3>
+                    <p>Garantit que vous possédez toujours la meilleure version disponible de votre jeu pour la console sur laquelle vous jouez, sans frais cachés.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Rétrocompatibilité & FPS</h3>
+                    <p>Vos anciens titres bénéficient d'améliorations matérielles majeures, doublant parfois la cadence d'affichage jusqu'à 60 images par seconde.</p>
                 </div>
             </div>
         </div>
+    </main>
 
-    </div>
+    <footer>
+        <p>L'Expérience Assassin's Creed sur Xbox | par Assassin's Creed : Genealogy</p>
+    </footer>
 
     <script>
-        let currentSlide = 1;
-        const totalSlides = 3;
-
-        function goToSlide(slideNumber) {
-            document.querySelectorAll('.slide-container').forEach(slide => {
-                slide.classList.remove('active');
-            });
-            document.getElementById('slide' + slideNumber).classList.add('active');
-            currentSlide = slideNumber;
+        function switchTab(tabId) {
+            document.querySelectorAll('.section-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
         }
-
-        // Keyboard arrow key support
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowRight' || e.key === 'PageDown') {
-                let next = currentSlide + 1;
-                if (next > totalSlides) next = 1;
-                goToSlide(next);
-            } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
-                let prev = currentSlide - 1;
-                if (prev < 1) prev = totalSlides;
-                goToSlide(prev);
-            }
-        });
     </script>
-
 </body>
 </html>
