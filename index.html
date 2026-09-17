@@ -15,21 +15,29 @@
             --text-muted: #a0a0a0;
         }
 
+        /* Supprime les marges par défaut de la page pour le plein écran */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--xbox-dark);
+        }
+
         .ac-xbox-wrapper {
             background-color: var(--xbox-dark);
             color: var(--text-main);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            border-radius: 12px;
+            width: 100%;
+            min-height: 100vh;
+            border-radius: 0;
             overflow: hidden;
-            border: 1px solid var(--xbox-border);
-            margin: 1rem 0;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+            border: none;
+            box-sizing: border-box;
         }
 
         .ac-xbox-wrapper header {
             background: rgba(14, 14, 14, 0.95);
             border-bottom: 2px solid var(--xbox-green);
-            padding: 1.5rem 2rem;
+            padding: 2rem;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -39,7 +47,7 @@
         }
 
         .ac-xbox-wrapper .custom-logo {
-            max-width: 250px;
+            max-width: 280px;
             width: 100%;
             height: auto;
             margin-bottom: 0.8rem;
@@ -59,13 +67,14 @@
         }
 
         .ac-xbox-wrapper main {
-            max-width: 1200px;
-            width: 92%;
-            margin: 2rem auto;
+            width: 94%;
+            max-width: 1400px;
+            margin: 2.5rem auto;
             display: flex;
             flex-direction: column;
             gap: 2rem;
-            padding-bottom: 2rem;
+            padding-bottom: 3rem;
+            box-sizing: border-box;
         }
 
         .ac-xbox-wrapper .nav-tabs {
@@ -235,7 +244,7 @@
         }
 
         @media(max-width: 768px) {
-            .ac-xbox-wrapper header { padding: 1rem; }
+            .ac-xbox-wrapper header { padding: 1.5rem 1rem; }
             .ac-xbox-wrapper .section-content { padding: 1.5rem; }
         }
     </style>
